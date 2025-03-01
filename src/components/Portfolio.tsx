@@ -31,44 +31,44 @@ const Portfolio = () => {
     };
   }, []);
 
-  const categories = ['Todos', 'Web', 'App', 'E-commerce', 'SaaS'];
+  const categories = ['Todos', 'Web', 'E-commerce', 'Aplicaciones', 'Emprendimientos'];
 
   const projects = [
     {
-      title: "Plataforma E-learning Premium",
-      category: "Web",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80",
-      tags: ["React", "Node.js", "MongoDB"]
-    },
-    {
-      title: "App de Gestión Financiera",
-      category: "App",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-      tags: ["React Native", "Firebase", "Redux"]
-    },
-    {
-      title: "E-commerce de Lujo",
+      title: "Tienda Online de Indumentaria",
       category: "E-commerce",
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-      tags: ["Vue.js", "Nuxt", "Strapi"]
+      image: "https://images.unsplash.com/photo-1614771637369-ed6747060d21?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80",
+      tags: ["Woocommerce", "Diseño Responsivo", "Medios de Pago"]
     },
     {
-      title: "Dashboard Analytics SaaS",
-      category: "SaaS",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80",
-      tags: ["Angular", "Express", "PostgreSQL"]
+      title: "Web para Estudio Contable",
+      category: "Web",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+      tags: ["WordPress", "Formularios", "SEO"]
     },
     {
-      title: "App de Reservas Premium",
-      category: "App",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
-      tags: ["React Native", "GraphQL", "AWS"]
+      title: "App de Gestión para Cafetería",
+      category: "Aplicaciones",
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+      tags: ["React", "Sistema de Pedidos", "Reportes"]
     },
     {
-      title: "Plataforma de Marketing Digital",
-      category: "SaaS",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
-      tags: ["React", "Django", "Redis"]
+      title: "Página para Productora de Eventos",
+      category: "Web",
+      image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80",
+      tags: ["Diseño Web", "Galería", "Calendario"]
+    },
+    {
+      title: "E-commerce de Productos Regionales",
+      category: "E-commerce",
+      image: "https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+      tags: ["Tienda Online", "Envíos", "MercadoPago"]
+    },
+    {
+      title: "Web para Startup Agropecuaria",
+      category: "Emprendimientos",
+      image: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80",
+      tags: ["Landing Page", "Formulario de Contacto", "SEO"]
     }
   ];
 
@@ -80,12 +80,12 @@ const Portfolio = () => {
     <section id="portafolio" className="section-padding bg-secondary/30" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Portafolio Selecto</div>
+          <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Portafolio</div>
           <h2 className="section-heading animate-on-scroll opacity-0">
-            Proyectos <span className="text-accent">destacados</span>
+            Proyectos <span className="text-accent">realizados</span>
           </h2>
           <p className="section-subheading mx-auto animate-on-scroll opacity-0">
-            Una selección de proyectos premium desarrollados para clientes exclusivos que buscaban soluciones digitales de alto impacto.
+            Conocé algunos de los trabajos que he realizado para emprendedores y pequeñas empresas argentinas.
           </p>
         </div>
         
@@ -126,7 +126,7 @@ const Portfolio = () => {
                       href="#" 
                       className="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-white font-medium border border-white/30 hover:bg-white/30 transition-all duration-300"
                     >
-                      Ver detalles
+                      Ver proyecto
                     </a>
                   </div>
                 </div>
@@ -149,7 +149,7 @@ const Portfolio = () => {
                     href="#" 
                     className="inline-flex items-center text-accent font-medium text-sm hover:underline"
                   >
-                    Ver caso de estudio
+                    Ver detalles
                     <ArrowRight className="ml-1 w-4 h-4" />
                   </a>
                 </div>

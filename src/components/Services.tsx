@@ -34,33 +34,33 @@ const Services = () => {
   const services = [
     {
       icon: <Layout className="w-10 h-10" />,
-      title: "Desarrollo Web Premium",
-      description: "Sitios web y aplicaciones web personalizadas con diseño exclusivo, alto rendimiento y optimización para SEO."
+      title: "Sitios Web para PyMEs",
+      description: "Páginas web profesionales, rápidas y optimizadas para SEO que conectan tu negocio con nuevos clientes."
     },
     {
       icon: <Smartphone className="w-10 h-10" />,
-      title: "Aplicaciones Móviles",
-      description: "Apps nativas y cross-platform con experiencias de usuario excepcionales para iOS y Android."
+      title: "Tiendas Online",
+      description: "E-commerce a medida para que puedas vender tus productos en todo el país sin complicaciones."
     },
     {
       icon: <Code className="w-10 h-10" />,
-      title: "Desarrollo Full Stack",
-      description: "Soluciones end-to-end utilizando las tecnologías más modernas y eficientes del mercado."
+      title: "Aplicaciones Web",
+      description: "Sistemas de gestión y aplicaciones para optimizar procesos en tu negocio o emprendimiento."
     },
     {
       icon: <Database className="w-10 h-10" />,
-      title: "Arquitectura de Sistemas",
-      description: "Diseño e implementación de arquitecturas escalables, seguras y de alto rendimiento."
+      title: "Administración de Datos",
+      description: "Soluciones para organizar tu información y facilitar la toma de decisiones en tu empresa."
     },
     {
       icon: <SearchCheck className="w-10 h-10" />,
-      title: "Optimización y Mejora",
-      description: "Análisis y optimización de sistemas existentes para mejorar rendimiento, seguridad y experiencia de usuario."
+      title: "Posicionamiento SEO",
+      description: "Estrategias para que tu negocio aparezca en los primeros resultados de búsqueda y llegue a más clientes."
     },
     {
       icon: <Lightbulb className="w-10 h-10" />,
-      title: "Consultoría Estratégica",
-      description: "Asesoramiento experto para transformación digital y estrategias tecnológicas alineadas con objetivos de negocio."
+      title: "Asesoría Digital",
+      description: "Acompañamiento para emprendedores que quieren dar sus primeros pasos en el mundo online."
     }
   ];
 
@@ -68,12 +68,12 @@ const Services = () => {
     <section id="servicios" className="section-padding" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Servicios Premium</div>
+          <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Servicios</div>
           <h2 className="section-heading animate-on-scroll opacity-0">
-            Soluciones digitales <span className="text-accent">exclusivas</span>
+            Soluciones digitales <span className="text-accent">a tu medida</span>
           </h2>
           <p className="section-subheading mx-auto animate-on-scroll opacity-0">
-            Ofrezco servicios de desarrollo a medida para clientes que buscan calidad excepcional y resultados sobresalientes.
+            Desarrollo servicios adaptados a las necesidades de emprendedores y pequeñas empresas argentinas.
           </p>
         </div>
         
@@ -93,7 +93,7 @@ const Services = () => {
                 href="#contacto" 
                 className="inline-flex items-center text-accent font-medium text-sm hover:underline"
               >
-                Consultar servicio
+                Más información
                 <ArrowRight className="ml-1 w-4 h-4" />
               </a>
             </div>
@@ -102,7 +102,7 @@ const Services = () => {
         
         <div className="mt-16 text-center animate-on-scroll opacity-0">
           <Button className="rounded-full px-8 py-6">
-            Solicitar consulta personalizada
+            Solicitar presupuesto sin cargo
           </Button>
         </div>
       </div>

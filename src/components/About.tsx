@@ -31,14 +31,14 @@ const About = () => {
   }, []);
 
   const skills = [
-    "Desarrollo Frontend con React/Vue/Angular",
-    "Desarrollo Backend con Node.js/Python",
-    "Diseño de UX/UI centrado en el usuario",
-    "Optimización de rendimiento y SEO",
-    "Implementación de API RESTful",
-    "Arquitectura de software escalable",
-    "DevOps y CI/CD",
-    "Consultoría estratégica digital"
+    "Desarrollo de sitios web modernos",
+    "Aplicaciones web a medida para PyMEs",
+    "Tiendas online y ecommerce",
+    "Optimización de velocidad y SEO",
+    "Integración con redes sociales",
+    "Diseño adaptado a todos los dispositivos",
+    "Soluciones para gestión de negocios",
+    "Consultoría digital para emprendedores"
   ];
 
   return (
@@ -48,8 +48,8 @@ const About = () => {
           <div className="relative animate-on-scroll opacity-0">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
-                alt="Desarrollador trabajando"
+                src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
+                alt="Emprendedor argentino trabajando"
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-accent/10 mix-blend-overlay"></div>
@@ -70,10 +70,10 @@ const About = () => {
           <div className="space-y-6">
             <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Sobre mí</div>
             <h2 className="section-heading animate-on-scroll opacity-0">
-              Desarrollo soluciones digitales de <span className="text-accent">alto impacto</span>
+              Desarrollo soluciones digitales con <span className="text-accent">impacto real</span>
             </h2>
             <p className="text-lg text-muted-foreground animate-on-scroll opacity-0">
-              Soy un desarrollador full stack con más de 7 años de experiencia, especializado en crear soluciones digitales personalizadas para clientes que buscan excelencia. Mi enfoque combina habilidades técnicas avanzadas con una profunda comprensión de las necesidades de negocio.
+              Soy un desarrollador web con más de 7 años de experiencia, especializado en ayudar a emprendedores y PyMEs argentinas a crecer en el mundo digital. Mi enfoque combina conocimiento técnico con una comprensión práctica de las necesidades de los negocios locales.
             </p>
             
             <div className="pt-4 animate-on-scroll opacity-0">

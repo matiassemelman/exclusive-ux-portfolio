@@ -38,20 +38,20 @@ const Hero = () => {
           <div className="space-y-8">
             <div className="space-y-2">
               <div className="badge badge-accent inline-block mb-4 opacity-0 animate-fade-in">
-                Desarrollador Full Stack Premium
+                Desarrollo Web para Emprendedores
               </div>
               <h1 
                 ref={titleRef} 
                 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight opacity-0"
               >
                 Soluciones digitales <br />
-                <span className="text-accent">exclusivas</span> para tu negocio
+                <span className="text-accent">accesibles</span> para tu negocio
               </h1>
               <p 
                 ref={subtitleRef} 
                 className="text-lg md:text-xl text-muted-foreground mt-6 max-w-lg opacity-0"
               >
-                Desarrollo aplicaciones web y móviles a medida con los más altos estándares de calidad para clientes premium que buscan destacar en el mercado digital.
+                Desarrollo sitios web y aplicaciones a medida que ayudan a emprendedores y PyMEs argentinas a crecer y destacarse en el mundo digital.
               </p>
             </div>
             
@@ -61,7 +61,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button variant="outline" className="rounded-full px-8 py-6 text-base">
-                Conoce mi proceso
+                Charlemos
               </Button>
             </div>
             
@@ -72,7 +72,7 @@ const Hero = () => {
               </div>
               <div className="text-center">
                 <h3 className="text-3xl font-bold">50+</h3>
-                <p className="text-sm text-muted-foreground">Proyectos completados</p>
+                <p className="text-sm text-muted-foreground">PyMEs y emprendedores</p>
               </div>
               <div className="text-center">
                 <h3 className="text-3xl font-bold">100%</h3>
@@ -87,8 +87,8 @@ const Hero = () => {
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" 
-                alt="Desarrollo de software profesional" 
+                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2672&q=80" 
+                alt="Emprendedor trabajando con tecnología" 
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-accent/10 mix-blend-overlay"></div>
@@ -106,18 +106,18 @@ const Hero = () => {
                 <div className="w-3 h-3 rounded-full bg-green-400"></div>
               </div>
               <div className="mt-2 text-xs text-primary/70 font-mono">
-                <div>const <span className="text-blue-500">premium</span> = <span className="text-green-500">true</span>;</div>
-                <div><span className="text-purple-500">function</span> deliverValue() &#123;</div>
-                <div>&nbsp;&nbsp;return <span className="text-blue-500">excellence</span>;</div>
+                <div>const <span className="text-blue-500">pyme</span> = <span className="text-green-500">true</span>;</div>
+                <div><span className="text-purple-500">function</span> crecerOnline() &#123;</div>
+                <div>&nbsp;&nbsp;return <span className="text-blue-500">éxito</span>;</div>
                 <div>&#125;</div>
               </div>
             </div>
             
             <div className="absolute -right-10 bottom-1/4 glass-card p-2 rounded-xl shadow-xl animate-float animation-delay-1000">
               <div className="text-xs text-primary/70 font-mono">
-                <div>&lt;<span className="text-blue-500">Design</span>&gt;</div>
-                <div>&nbsp;&nbsp;<span className="text-green-500">Pixel Perfect</span></div>
-                <div>&lt;/<span className="text-blue-500">Design</span>&gt;</div>
+                <div>&lt;<span className="text-blue-500">Argentina</span>&gt;</div>
+                <div>&nbsp;&nbsp;<span className="text-green-500">Crecimiento Digital</span></div>
+                <div>&lt;/<span className="text-blue-500">Argentina</span>&gt;</div>
               </div>
             </div>
           </div>

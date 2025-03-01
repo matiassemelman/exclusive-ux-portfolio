@@ -69,14 +69,14 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Teléfono",
-      details: "+34 612 345 678",
-      link: "tel:+34612345678"
+      details: "+54 11 1234-5678",
+      link: "tel:+541112345678"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Ubicación",
-      details: "Madrid, España",
-      link: "https://maps.google.com/?q=Madrid,España"
+      details: "Buenos Aires, Argentina",
+      link: "https://maps.google.com/?q=BuenosAires,Argentina"
     }
   ];
 
@@ -86,10 +86,10 @@ const Contact = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Contacto</div>
           <h2 className="section-heading animate-on-scroll opacity-0">
-            Hablemos de tu <span className="text-accent">proyecto</span>
+            Charlemos sobre tu <span className="text-accent">proyecto</span>
           </h2>
           <p className="section-subheading mx-auto animate-on-scroll opacity-0">
-            ¿Tienes un proyecto en mente? Contáctame para discutir cómo puedo ayudarte a alcanzar tus objetivos digitales.
+            ¿Tenés una idea o necesitás mejorar la presencia online de tu negocio? Contactame para conversar sobre cómo puedo ayudarte.
           </p>
         </div>
         
@@ -119,7 +119,7 @@ const Contact = () => {
               </div>
               
               <div className="mt-12">
-                <h4 className="font-medium mb-4">Sígueme en</h4>
+                <h4 className="font-medium mb-4">Seguime en</h4>
                 <div className="flex space-x-4">
                   {['twitter', 'linkedin', 'github', 'instagram'].map((social) => (
                     <a 
@@ -139,7 +139,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div className="lg:col-span-3 animate-on-scroll opacity-0">
             <div className="glass-card rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Envíame un mensaje</h3>
+              <h3 className="text-2xl font-bold mb-6">Enviame un mensaje</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -182,12 +182,12 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="+34 612 345 678"
+                      placeholder="+54 11 1234-5678"
                     />
                   </div>
                   
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2">Empresa</label>
+                    <label htmlFor="company" className="block text-sm font-medium mb-2">Empresa o Emprendimiento</label>
                     <input
                       type="text"
                       id="company"
@@ -195,7 +195,7 @@ const Contact = () => {
                       value={formData.company}
                       onChange={handleChange}
                       className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="Nombre de tu empresa"
+                      placeholder="Nombre de tu negocio"
                     />
                   </div>
                 </div>
@@ -211,10 +211,11 @@ const Contact = () => {
                     required
                   >
                     <option value="" disabled>Selecciona una opción</option>
-                    <option value="web">Desarrollo Web</option>
-                    <option value="app">Aplicación Móvil</option>
-                    <option value="ecommerce">E-commerce</option>
-                    <option value="saas">Plataforma SaaS</option>
+                    <option value="web">Sitio Web</option>
+                    <option value="ecommerce">Tienda Online</option>
+                    <option value="app">Aplicación Web</option>
+                    <option value="seo">Posicionamiento SEO</option>
+                    <option value="consultoria">Consultoría Digital</option>
                     <option value="other">Otro</option>
                   </select>
                 </div>
@@ -228,7 +229,7 @@ const Contact = () => {
                     onChange={handleChange}
                     rows={5}
                     className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="Describe brevemente tu proyecto y objetivos"
+                    placeholder="Contame brevemente sobre tu proyecto o idea"
                     required
                   />
                 </div>
