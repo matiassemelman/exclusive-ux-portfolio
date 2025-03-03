@@ -20,8 +20,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['SF Pro Display', 'system-ui', 'sans-serif'],
-				body: ['SF Pro Text', 'system-ui', 'sans-serif'],
+				sans: ['Montserrat', 'system-ui', 'sans-serif'],
+				body: ['Poppins', 'system-ui', 'sans-serif'],
+				inter: ['Inter', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -29,14 +30,34 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// New brand colors
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#1F3B5F', // Azul oscuro
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
+					DEFAULT: '#4A4A4A', // Gris oscuro
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
+				accent: {
+					DEFAULT: '#C9A14C', // Dorado
+					foreground: '#FFFFFF'
+				},
+				highlight: {
+					DEFAULT: '#1D7874', // Verde esmeralda
+					foreground: '#FFFFFF'
+				},
+				cta: {
+					DEFAULT: '#F2A900', // Amarillo vibrante
+					foreground: '#0E0E0E'
+				},
+				dark: {
+					DEFAULT: '#0E0E0E', // Negro
+					foreground: '#FFFFFF'
+				},
+				
+				// Original tailwind colors (modified to match new brand)
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
@@ -44,10 +65,6 @@ export default {
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',

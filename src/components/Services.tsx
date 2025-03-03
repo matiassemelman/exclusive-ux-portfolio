@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { ArrowRight, Code, Layout, Smartphone, Database, SearchCheck, Lightbulb } from 'lucide-react';
+import { ArrowRight, Globe, ShoppingCart, LayoutGrid, BarChart2, Search, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Services = () => {
@@ -33,34 +33,34 @@ const Services = () => {
 
   const services = [
     {
-      icon: <Layout className="w-10 h-10" />,
-      title: "Sitios Web para PyMEs",
-      description: "Páginas web profesionales, rápidas y optimizadas para SEO que conectan tu negocio con nuevos clientes."
+      icon: <Globe className="w-10 h-10" />,
+      title: "Sitios Web Express",
+      description: "Páginas web profesionales listas en 20 días o menos, optimizadas para atraer clientes y generar ventas."
     },
     {
-      icon: <Smartphone className="w-10 h-10" />,
-      title: "Tiendas Online",
-      description: "E-commerce a medida para que puedas vender tus productos en todo el país sin complicaciones."
+      icon: <ShoppingCart className="w-10 h-10" />,
+      title: "E-commerce Rápido",
+      description: "Tu tienda online lista para vender en tiempo récord, con procesos de pago y envío integrados."
     },
     {
-      icon: <Code className="w-10 h-10" />,
-      title: "Aplicaciones Web",
-      description: "Sistemas de gestión y aplicaciones para optimizar procesos en tu negocio o emprendimiento."
+      icon: <LayoutGrid className="w-10 h-10" />,
+      title: "Apps a Medida",
+      description: "Aplicaciones y sistemas adaptados a tu negocio que digitalizan procesos y mejoran la productividad."
     },
     {
-      icon: <Database className="w-10 h-10" />,
-      title: "Administración de Datos",
-      description: "Soluciones para organizar tu información y facilitar la toma de decisiones en tu empresa."
+      icon: <BarChart2 className="w-10 h-10" />,
+      title: "Re-ingeniería de Ventas",
+      description: "Transformación de tu proceso comercial para aprovechar al máximo los canales digitales."
     },
     {
-      icon: <SearchCheck className="w-10 h-10" />,
+      icon: <Search className="w-10 h-10" />,
       title: "Posicionamiento SEO",
-      description: "Estrategias para que tu negocio aparezca en los primeros resultados de búsqueda y llegue a más clientes."
+      description: "Estrategias rápidas para que tu negocio aparezca en los primeros resultados de búsqueda."
     },
     {
-      icon: <Lightbulb className="w-10 h-10" />,
-      title: "Asesoría Digital",
-      description: "Acompañamiento para emprendedores que quieren dar sus primeros pasos en el mundo online."
+      icon: <Zap className="w-10 h-10" />,
+      title: "Digitalización Express",
+      description: "Consultoría y acompañamiento intensivo para digitalizar tu emprendimiento en tiempo récord."
     }
   ];
 
@@ -68,12 +68,12 @@ const Services = () => {
     <section id="servicios" className="section-padding" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Servicios</div>
+          <div className="badge badge-cta inline-block mb-2 animate-on-scroll opacity-0">Servicios</div>
           <h2 className="section-heading animate-on-scroll opacity-0">
-            Soluciones digitales <span className="text-accent">a tu medida</span>
+            Soluciones digitales <span className="text-accent">en tiempo récord</span>
           </h2>
           <p className="section-subheading mx-auto animate-on-scroll opacity-0">
-            Desarrollo servicios adaptados a las necesidades de emprendedores y pequeñas empresas argentinas.
+            Digitalizo PyMEs y emprendimientos argentinos en menos de 20 días. Sin excusas, sin demoras, con resultados inmediatos.
           </p>
         </div>
         
@@ -84,7 +84,7 @@ const Services = () => {
               className="glass-card rounded-xl p-6 transition-all duration-300 hover:shadow-lg animate-on-scroll opacity-0"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="p-3 bg-accent/10 inline-flex rounded-lg text-accent mb-4">
+              <div className="p-3 bg-primary/5 inline-flex rounded-lg text-accent mb-4">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold mb-3">{service.title}</h3>
@@ -101,7 +101,7 @@ const Services = () => {
         </div>
         
         <div className="mt-16 text-center animate-on-scroll opacity-0">
-          <Button className="rounded-full px-8 py-6">
+          <Button className="rounded-full px-8 py-6 bg-cta text-dark hover:bg-cta/90">
             Solicitar presupuesto sin cargo
           </Button>
         </div>

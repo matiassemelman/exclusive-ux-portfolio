@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { CheckCircle, Clock, Target, Lightbulb } from 'lucide-react';
 
 const About = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -31,49 +31,53 @@ const About = () => {
   }, []);
 
   const skills = [
-    "Desarrollo de sitios web modernos",
-    "Aplicaciones web a medida para PyMEs",
-    "Tiendas online y ecommerce",
-    "Optimización de velocidad y SEO",
-    "Integración con redes sociales",
-    "Diseño adaptado a todos los dispositivos",
-    "Soluciones para gestión de negocios",
-    "Consultoría digital para emprendedores"
+    "Desarrollo web rápido y efectivo",
+    "Apps y sistemas a medida en tiempo récord",
+    "Digitalización de procesos de negocios",
+    "Sistemas de e-commerce y ventas",
+    "Optimización de canales digitales",
+    "Re-ingeniería de ventas digitales",
+    "Integración entre sistemas",
+    "Consultoría para digitalización"
   ];
 
   return (
-    <section id="sobre-mí" className="section-padding bg-secondary/30" ref={sectionRef}>
+    <section id="sobre-mí" className="section-padding bg-secondary/5" ref={sectionRef}>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative animate-on-scroll opacity-0">
             <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
-                alt="Emprendedor argentino trabajando"
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2970&q=80"
+                alt="Desarrollador trabajando en soluciones digitales"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-accent/10 mix-blend-overlay"></div>
+              <div className="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
             </div>
             
             {/* Experience badge */}
-            <div className="absolute -right-5 -bottom-5 glass-card rounded-xl p-4 shadow-xl">
+            <div className="absolute -right-5 -bottom-5 glass-card rounded-xl p-4 shadow-xl bg-white/90">
               <div className="text-center">
-                <span className="text-3xl font-bold text-primary">7+</span>
-                <p className="text-sm text-muted-foreground">Años de experiencia</p>
+                <span className="text-3xl font-bold text-accent">7+</span>
+                <p className="text-sm text-primary">Años de experiencia</p>
               </div>
             </div>
             
             {/* Decorative elements */}
-            <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-accent/10 rounded-full filter blur-xl"></div>
+            <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-cta/10 rounded-full filter blur-xl"></div>
           </div>
           
           <div className="space-y-6">
-            <div className="badge badge-accent inline-block mb-2 animate-on-scroll opacity-0">Sobre mí</div>
+            <div className="badge badge-cta inline-block mb-2 animate-on-scroll opacity-0">Mi historia</div>
             <h2 className="section-heading animate-on-scroll opacity-0">
-              Desarrollo soluciones digitales con <span className="text-accent">impacto real</span>
+              Desarrollo <span className="text-accent">digital acelerado</span> para resultados reales
             </h2>
             <p className="text-lg text-muted-foreground animate-on-scroll opacity-0">
-              Soy un desarrollador web con más de 7 años de experiencia, especializado en ayudar a emprendedores y PyMEs argentinas a crecer en el mundo digital. Mi enfoque combina conocimiento técnico con una comprensión práctica de las necesidades de los negocios locales.
+              Durante años vi cómo las PyMEs en Argentina luchaban con procesos obsoletos, perdiendo oportunidades por falta de digitalización. La mayoría de proveedores ofrecían soluciones a 3-6 meses vista. Mientras tanto, los negocios seguían perdiendo clientes.
+            </p>
+            
+            <p className="text-lg text-muted-foreground animate-on-scroll opacity-0">
+              Por eso creé un método para entregar soluciones funcionales y estratégicas en menos de 20 días. Un desarrollo rápido no significa malo, sino que con un enfoque adecuado se pueden lograr resultados tangibles en semanas, no meses.
             </p>
             
             <div className="pt-4 animate-on-scroll opacity-0">
@@ -86,6 +90,33 @@ const About = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+        
+        {/* Value proposition boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <div className="glass-card p-6 rounded-xl animate-on-scroll opacity-0">
+            <Clock className="w-10 h-10 text-cta mb-4" />
+            <h3 className="text-xl font-bold mb-2">Velocidad</h3>
+            <p className="text-muted-foreground">
+              Tu negocio digitalizado en menos de 20 días. Sin excusas, sin demoras. Cada día sin una estrategia digital es dinero perdido.
+            </p>
+          </div>
+          
+          <div className="glass-card p-6 rounded-xl animate-on-scroll opacity-0" style={{animationDelay: '100ms'}}>
+            <Target className="w-10 h-10 text-accent mb-4" />
+            <h3 className="text-xl font-bold mb-2">Efectividad</h3>
+            <p className="text-muted-foreground">
+              No es solo una web o app. Es una transformación real en tu negocio que genera resultados inmediatos y medibles.
+            </p>
+          </div>
+          
+          <div className="glass-card p-6 rounded-xl animate-on-scroll opacity-0" style={{animationDelay: '200ms'}}>
+            <Lightbulb className="w-10 h-10 text-highlight mb-4" />
+            <h3 className="text-xl font-bold mb-2">Simplicidad</h3>
+            <p className="text-muted-foreground">
+              La digitalización no tiene por qué ser un proceso eterno o complicado. En 20 días podés empezar a vender más y mejor.
+            </p>
           </div>
         </div>
       </div>
