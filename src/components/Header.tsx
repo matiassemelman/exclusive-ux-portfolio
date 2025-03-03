@@ -34,7 +34,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         <a href="#" className="text-2xl font-bold text-primary transition-all duration-300 flex items-center">
-          <span>digital</span><span className="text-accent">20</span>
+          <span>DIGITAL</span><span className="text-accent">20</span>
           <Clock className="h-5 w-5 ml-1 text-accent" />
         </a>
 
