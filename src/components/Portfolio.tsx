@@ -2,6 +2,36 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
 
+// Función para obtener el color de la categoría
+const getCategoryColor = (category: string, isActive: boolean = false) => {
+  switch (category) {
+    case 'Web':
+      return isActive
+        ? 'bg-blue-600 text-white border-blue-600'
+        : 'bg-blue-100 text-blue-600 border-blue-200';
+    case 'E-commerce':
+      return isActive
+        ? 'bg-green-600 text-white border-green-600'
+        : 'bg-green-100 text-green-600 border-green-200';
+    case 'Aplicaciones':
+      return isActive
+        ? 'bg-purple-600 text-white border-purple-600'
+        : 'bg-purple-100 text-purple-600 border-purple-200';
+    case 'Emprendimientos':
+      return isActive
+        ? 'bg-amber-600 text-white border-amber-600'
+        : 'bg-amber-100 text-amber-600 border-amber-200';
+    case 'Todos':
+      return isActive
+        ? 'bg-accent text-white border-accent'
+        : 'bg-accent/10 text-accent border-accent/20';
+    default:
+      return isActive
+        ? 'bg-accent text-white border-accent'
+        : 'bg-accent/10 text-accent border-accent/20';
+  }
+};
+
 const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeCategory, setActiveCategory] = useState('Todos');
@@ -97,19 +127,45 @@ const Portfolio = () => {
 
         {/* Categories */}
         <div className="flex flex-wrap justify-center gap-4 mb-12 animate-on-scroll opacity-0">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                activeCategory === category
-                  ? 'bg-accent text-white shadow-sm'
-                  : 'bg-white border hover:border-accent'
-              }`}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
+          {categories.map((category) => {
+            // Definir clases de hover específicas para cada categoría
+            let hoverClass = '';
+            if (activeCategory !== category) {
+              switch (category) {
+                case 'Web':
+                  hoverClass = 'hover:bg-blue-50 hover:text-blue-600 hover:border-blue-200';
+                  break;
+                case 'E-commerce':
+                  hoverClass = 'hover:bg-green-50 hover:text-green-600 hover:border-green-200';
+                  break;
+                case 'Aplicaciones':
+                  hoverClass = 'hover:bg-purple-50 hover:text-purple-600 hover:border-purple-200';
+                  break;
+                case 'Emprendimientos':
+                  hoverClass = 'hover:bg-amber-50 hover:text-amber-600 hover:border-amber-200';
+                  break;
+                case 'Todos':
+                  hoverClass = 'hover:bg-accent/5 hover:text-accent hover:border-accent/20';
+                  break;
+                default:
+                  hoverClass = 'hover:bg-gray-50';
+              }
+            }
+
+            return (
+              <button
+                key={category}
+                className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap min-w-[120px] ${
+                  activeCategory === category
+                    ? getCategoryColor(category, true) + ' shadow-sm'
+                    : `bg-white border ${hoverClass}`
+                }`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            );
+          })}
         </div>
 
         {/* Projects Grid */}
@@ -142,12 +198,17 @@ const Portfolio = () => {
                 <div className="p-6 bg-white">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-lg font-bold">{project.title}</h3>
-                    <span className="text-xs px-2 py-1 bg-secondary rounded-full">{project.category}</span>
+                    <span className={`text-xs px-3 py-1 font-medium rounded-full border whitespace-nowrap min-w-[90px] text-center ${getCategoryColor(project.category)}`}>
+                      {project.category}
+                    </span>
                   </div>
 
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full">
+                      <span
+                        key={tagIndex}
+                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 font-medium rounded-full border border-gray-200 hover:bg-gray-200 hover:text-gray-800 transition-all duration-300"
+                      >
                         {tag}
                       </span>
                     ))}
