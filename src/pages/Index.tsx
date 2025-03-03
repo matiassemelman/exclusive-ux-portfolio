@@ -1,14 +1,15 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
-import Process from '@/components/Process';
-import Testimonials from '@/components/Testimonials';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+
+// Lazy load components that are below the fold
+const About = lazy(() => import('@/components/About'));
+const Services = lazy(() => import('@/components/Services'));
+const Portfolio = lazy(() => import('@/components/Portfolio'));
+const Process = lazy(() => import('@/components/Process'));
+const Testimonials = lazy(() => import('@/components/Testimonials'));
+const Contact = lazy(() => import('@/components/Contact'));
+const Footer = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
   // Smooth scroll for anchor links
@@ -16,7 +17,7 @@ const Index = () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const href = this.getAttribute('href');
         if (href) {
           const targetElement = document.querySelector(href);
@@ -35,14 +36,18 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Services />
-        <Portfolio />
-        <Process />
-        <Testimonials />
-        <Contact />
+        <Suspense fallback={<div className="h-96 flex items-center justify-center">Cargando...</div>}>
+          <About />
+          <Services />
+          <Portfolio />
+          <Process />
+          <Testimonials />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="h-20"></div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };

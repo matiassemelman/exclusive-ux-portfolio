@@ -1,29 +1,28 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 99%;
-    --foreground: 214 33% 17%;
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 7%; /* #121212 */
 
     --card: 0 0% 100%;
-    --card-foreground: 214 33% 17%;
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 214 33% 17%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 214 33% 17%;
+    --primary: 328 97% 42%; /* #D90479 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 29%;
+    --secondary: 0 0% 29%; /* #4A4A4A */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 39 45% 55%;
+    --accent: 263 88% 57%; /* #6E30F2 */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -31,7 +30,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 85%;
-    --ring: 214 33% 17%;
+    --ring: 328 97% 42%; /* #D90479 */
 
     --radius: 0.5rem;
   }
@@ -49,13 +48,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-medium tracking-tight;
+    @apply font-sans font-medium tracking-tight text-dark;
   }
 
   .section-padding {
     @apply py-16 md:py-24;
   }
-  
+
   .container {
     @apply px-4 sm:px-6 lg:px-8;
   }
@@ -63,47 +62,47 @@
   .glass-card {
     @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-sm;
   }
-  
+
   .glass-dark {
-    @apply bg-primary/90 backdrop-blur-lg border border-white/10 shadow-sm;
+    @apply bg-highlight/90 backdrop-blur-lg border border-white/10 shadow-sm;
   }
-  
+
   .subtle-shadow {
     @apply shadow-[0_8px_30px_rgba(0,0,0,0.05)];
   }
-  
+
   .section-heading {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-dark;
   }
-  
+
   .section-subheading {
-    @apply text-xl md:text-2xl font-medium mb-8 text-muted-foreground max-w-3xl;
+    @apply text-xl md:text-2xl font-medium mb-8 text-secondary max-w-3xl;
   }
-  
+
   .badge {
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
-  
+
   .badge-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/80;
   }
-  
+
   .badge-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
-  
+
   .badge-accent {
     @apply bg-accent text-accent-foreground hover:bg-accent/80;
   }
 
-  .badge-cta {
-    @apply bg-cta text-dark hover:bg-cta/90;
+  .badge-highlight {
+    @apply bg-highlight text-white hover:bg-highlight/90;
   }
-  
+
   .transition-all-300 {
     @apply transition-all duration-300 ease-in-out;
   }
-  
+
   .hover-translate {
     @apply transition-transform duration-300 ease-in-out hover:-translate-y-1;
   }

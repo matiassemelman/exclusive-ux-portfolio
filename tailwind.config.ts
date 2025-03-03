@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -30,33 +29,29 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				
+
 				// New brand colors
 				primary: {
-					DEFAULT: '#1F3B5F', // Azul oscuro
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: '#D90479', // Rosa Fucsia (CTA principal)
+					foreground: '#FFFFFF'
 				},
 				secondary: {
-					DEFAULT: '#4A4A4A', // Gris oscuro
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: '#4A4A4A', // Gris Oscuro
+					foreground: '#FFFFFF'
 				},
 				accent: {
-					DEFAULT: '#C9A14C', // Dorado
+					DEFAULT: '#6E30F2', // Violeta Brillante
 					foreground: '#FFFFFF'
 				},
 				highlight: {
-					DEFAULT: '#1D7874', // Verde esmeralda
+					DEFAULT: '#2F1073', // Violeta Oscuro
 					foreground: '#FFFFFF'
-				},
-				cta: {
-					DEFAULT: '#F2A900', // Amarillo vibrante
-					foreground: '#0E0E0E'
 				},
 				dark: {
-					DEFAULT: '#0E0E0E', // Negro
+					DEFAULT: '#121212', // Negro Suave
 					foreground: '#FFFFFF'
 				},
-				
+
 				// Original tailwind colors (modified to match new brand)
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',

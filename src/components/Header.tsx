@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -33,9 +32,9 @@ const Header = () => {
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-primary transition-all duration-300 flex items-center">
-          <span>DIGITAL</span><span className="text-accent">20</span>
-          <Clock className="h-5 w-5 ml-1 text-accent" />
+        <a href="#" className="text-2xl font-bold text-dark transition-all duration-300 flex items-center">
+          <span>DIGITAL</span><span className="text-primary">20</span>
+          <Clock className="h-5 w-5 ml-1 text-primary" />
         </a>
 
         {/* Desktop Navigation */}
@@ -52,7 +51,7 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button variant="default" className="rounded-full px-6 hover:translate bg-cta text-dark hover:bg-cta/90">
+          <Button variant="default" className="rounded-full px-6 hover:translate">
             ¡Digitalizate ya!
           </Button>
         </div>
@@ -81,7 +80,7 @@ const Header = () => {
               {item}
             </a>
           ))}
-          <Button variant="default" className="rounded-full w-full mt-6 bg-cta text-dark hover:bg-cta/90" onClick={() => setMobileMenuOpen(false)}>
+          <Button variant="default" className="rounded-full w-full mt-6" onClick={() => setMobileMenuOpen(false)}>
             ¡Digitalizate ya!
           </Button>
         </nav>
