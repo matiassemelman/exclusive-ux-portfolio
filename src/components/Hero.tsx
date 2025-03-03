@@ -32,6 +32,12 @@ const Hero = () => {
     };
   }, []);
 
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "+5491130332808";
+    const message = encodeURIComponent("Hola! Vi tu página y queria hacerte una consulta");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+  };
+
   return (
     <section id="inicio" ref={sectionRef} className="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
       <div className="container mx-auto">
@@ -59,7 +65,11 @@ const Hero = () => {
                 Ver resultados
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="rounded-full px-8 py-6 text-base border-primary">
+              <Button
+                variant="outline"
+                className="rounded-full px-8 py-6 text-base border-primary"
+                onClick={handleWhatsAppRedirect}
+              >
                 Charlemos
               </Button>
             </div>

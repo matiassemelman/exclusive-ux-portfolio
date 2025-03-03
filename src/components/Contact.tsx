@@ -1,19 +1,9 @@
-
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Phone } from 'lucide-react';
 
 const Contact = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    projectType: '',
-    message: ''
-  });
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,46 +29,11 @@ const Contact = () => {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "+5491130332808";
+    const message = encodeURIComponent("Hola, estoy interesado en solicitar un presupuesto para mi proyecto.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Here you would typically send the form data to your backend
-    alert('Gracias por contactarme. Me pondré en contacto contigo pronto.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      company: '',
-      projectType: '',
-      message: ''
-    });
-  };
-
-  const contactInfo = [
-    {
-      icon: <Mail className="w-6 h-6" />,
-      title: "Email",
-      details: "contacto@tudominio.com",
-      link: "mailto:contacto@tudominio.com"
-    },
-    {
-      icon: <Phone className="w-6 h-6" />,
-      title: "Teléfono",
-      details: "+54 11 1234-5678",
-      link: "tel:+541112345678"
-    },
-    {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Ubicación",
-      details: "Buenos Aires, Argentina",
-      link: "https://maps.google.com/?q=BuenosAires,Argentina"
-    }
-  ];
 
   return (
     <section id="contacto" className="section-padding" ref={sectionRef}>
@@ -92,152 +47,75 @@ const Contact = () => {
             ¿Tenés una idea o necesitás mejorar la presencia online de tu negocio? Contactame para conversar sobre cómo puedo ayudarte.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          {/* Contact Info */}
-          <div className="lg:col-span-2 animate-on-scroll opacity-0">
-            <div className="glass-card rounded-xl p-8 h-full">
-              <h3 className="text-2xl font-bold mb-6">Información de contacto</h3>
-              
-              <div className="space-y-6">
-                {contactInfo.map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="p-3 bg-accent/10 inline-flex rounded-lg text-accent mr-4">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium">{item.title}</h4>
-                      <a 
-                        href={item.link} 
-                        className="text-muted-foreground hover:text-accent transition-colors"
-                      >
-                        {item.details}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="mt-12">
-                <h4 className="font-medium mb-4">Seguime en</h4>
-                <div className="flex space-x-4">
-                  {['twitter', 'linkedin', 'github', 'instagram'].map((social) => (
-                    <a 
-                      key={social}
-                      href="#"
-                      className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300"
-                    >
-                      <span className="sr-only">{social}</span>
-                      {/* Here you would add the appropriate icon for each social network */}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Contact Form */}
-          <div className="lg:col-span-3 animate-on-scroll opacity-0">
-            <div className="glass-card rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Enviame un mensaje</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Nombre completo</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="Tu nombre"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="tu@email.com"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">Teléfono</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="+54 11 1234-5678"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium mb-2">Empresa o Emprendimiento</label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                      placeholder="Nombre de tu negocio"
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium mb-2">Tipo de proyecto</label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                    required
-                  >
-                    <option value="" disabled>Selecciona una opción</option>
-                    <option value="web">Sitio Web</option>
-                    <option value="ecommerce">Tienda Online</option>
-                    <option value="app">Aplicación Web</option>
-                    <option value="seo">Posicionamiento SEO</option>
-                    <option value="consultoria">Consultoría Digital</option>
-                    <option value="other">Otro</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">Mensaje</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-3 bg-secondary/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                    placeholder="Contame brevemente sobre tu proyecto o idea"
-                    required
-                  />
-                </div>
-                
-                <Button type="submit" className="w-full py-6 rounded-lg">
-                  Enviar mensaje
-                </Button>
-              </form>
+
+        <div className="flex flex-col items-center justify-center animate-on-scroll opacity-0">
+          <Button
+            className="rounded-full px-12 py-8 bg-gradient-to-r from-green-500 to-green-600 text-white hover:from-green-600 hover:to-green-700 font-bold text-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-4 border-2 border-green-400 relative overflow-hidden group mb-12"
+            onClick={handleWhatsAppRedirect}
+            style={{
+              animation: 'pulse 2s infinite',
+              boxShadow: '0 0 20px rgba(74, 222, 128, 0.6)'
+            }}
+          >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
+            <span className="absolute -inset-px bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-30 blur-sm transform -translate-x-full group-hover:translate-x-full transition-all duration-1000"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16" className="animate-pulse">
+              <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+            </svg>
+            <span className="relative z-10 tracking-wide">Contactame por WhatsApp</span>
+          </Button>
+
+          <div className="mt-8 text-center">
+            <h4 className="font-medium mb-4 text-lg">Seguime en</h4>
+            <div className="flex space-x-6 justify-center">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300"
+                aria-label="Instagram"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300"
+                aria-label="LinkedIn"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300"
+                aria-label="Twitter/X"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white border border-border flex items-center justify-center hover:bg-accent hover:text-white hover:border-accent transition-colors duration-300"
+                aria-label="Facebook"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
             </div>
           </div>
         </div>

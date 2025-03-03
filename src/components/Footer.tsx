@@ -19,7 +19,7 @@ const Footer = () => {
               portfolio<span className="text-primary">.</span>
             </a>
             <p className="text-white/70 mb-6 max-w-xs">
-              Desarrollo soluciones digitales exclusivas que combinan diseño elegante con tecnología avanzada.
+              Soy Matias Semelman, programador Argentino apasionado por la inteligencia artificial. Desarrollo soluciones digitales exclusivas que combinan diseño elegante con tecnología avanzada.
             </p>
             <div className="flex space-x-4">
               {['twitter', 'linkedin', 'github', 'instagram'].map((social) => (
@@ -83,24 +83,24 @@ const Footer = () => {
               <li className="text-white/70">
                 <span className="block font-medium text-white">Email:</span>
                 <a
-                  href="mailto:contacto@tudominio.com"
+                  href="mailto:matias.semelman@tudominio.com"
                   className="hover:text-primary transition-colors duration-300"
                 >
-                  contacto@tudominio.com
+                  matias.semelman@tudominio.com
                 </a>
               </li>
               <li className="text-white/70">
                 <span className="block font-medium text-white">Teléfono:</span>
                 <a
-                  href="tel:+34612345678"
+                  href="tel:+5491130332808"
                   className="hover:text-primary transition-colors duration-300"
                 >
-                  +34 612 345 678
+                  +54 9 11 3033-2808
                 </a>
               </li>
               <li className="text-white/70">
                 <span className="block font-medium text-white">Ubicación:</span>
-                Madrid, España
+                Buenos Aires, Argentina
               </li>
             </ul>
           </div>
@@ -108,7 +108,7 @@ const Footer = () => {
 
         <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/70 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} | Todos los derechos reservados
+            © {new Date().getFullYear()} | Matias Semelman | Todos los derechos reservados
           </p>
 
           <div className="flex items-center gap-6">

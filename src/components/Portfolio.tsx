@@ -35,6 +35,7 @@ const getCategoryColor = (category: string, isActive: boolean = false) => {
 const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeCategory, setActiveCategory] = useState('Todos');
+  const [isChangingCategory, setIsChangingCategory] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -108,6 +109,16 @@ const Portfolio = () => {
     }
   ];
 
+  // Mostrar todos los proyectos pero aplicar filtro visual
+  const handleCategoryChange = (category: string) => {
+    setIsChangingCategory(true);
+    setActiveCategory(category);
+    // Pequeño retraso para permitir la transición visual
+    setTimeout(() => {
+      setIsChangingCategory(false);
+    }, 300); // Aumentado a 300ms para dar tiempo a la transición
+  };
+
   const filteredProjects = activeCategory === 'Todos'
     ? projects
     : projects.filter(project => project.category === activeCategory);
@@ -160,7 +171,7 @@ const Portfolio = () => {
                     ? getCategoryColor(category, true) + ' shadow-sm'
                     : `bg-white border ${hoverClass}`
                 }`}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => handleCategoryChange(category)}
               >
                 {category}
               </button>
@@ -169,62 +180,77 @@ const Portfolio = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => (
-            <div
-              key={index}
-              className="group animate-on-scroll opacity-0"
-            >
-              <div className="relative rounded-xl overflow-hidden subtle-shadow transition-all duration-300 group-hover:shadow-lg">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <LazyImage
-                    src={project.image}
-                    alt={project.title}
-                    fallbackSrc={project.fallbackImage}
-                    width="600"
-                    height="450"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative min-h-[400px]">
+          {projects.map((project, index) => {
+            const isVisible = activeCategory === 'Todos' || project.category === activeCategory;
+
+            return (
+              <div
+                key={index}
+                className={`group animate-on-scroll transition-all duration-500 ease-in-out ${
+                  isVisible ? 'scale-100 opacity-100' : 'scale-95 opacity-0 absolute pointer-events-none'
+                }`}
+                style={{
+                  position: isVisible ? 'relative' : 'absolute',
+                  zIndex: isVisible ? 1 : 0,
+                  height: isVisible ? 'auto' : 0,
+                  overflow: 'hidden',
+                  visibility: isVisible ? 'visible' : 'hidden',
+                  transform: `translateY(${isChangingCategory ? '10px' : '0'})`,
+                  transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                }}
+              >
+                <div className="relative rounded-xl overflow-hidden subtle-shadow transition-all duration-300 group-hover:shadow-lg">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <LazyImage
+                      src={project.image}
+                      alt={project.title}
+                      fallbackSrc={project.fallbackImage}
+                      width="600"
+                      height="450"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <a
+                        href="#"
+                        className="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-white font-medium border border-white/30 hover:bg-white/30 transition-all duration-300"
+                      >
+                        Ver proyecto
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="p-6 bg-white">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-bold">{project.title}</h3>
+                      <span className={`text-xs px-3 py-1 font-medium rounded-full border whitespace-nowrap min-w-[90px] text-center ${getCategoryColor(project.category)}`}>
+                        {project.category}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="text-xs px-3 py-1 bg-gray-100 text-gray-700 font-medium rounded-full border border-gray-200 hover:bg-gray-200 hover:text-gray-800 transition-all duration-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
                     <a
                       href="#"
-                      className="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-white font-medium border border-white/30 hover:bg-white/30 transition-all duration-300"
+                      className="inline-flex items-center text-accent font-medium text-sm hover:underline"
                     >
-                      Ver proyecto
+                      Ver detalles
+                      <ArrowRight className="ml-1 w-4 h-4" />
                     </a>
                   </div>
                 </div>
-
-                <div className="p-6 bg-white">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-bold">{project.title}</h3>
-                    <span className={`text-xs px-3 py-1 font-medium rounded-full border whitespace-nowrap min-w-[90px] text-center ${getCategoryColor(project.category)}`}>
-                      {project.category}
-                    </span>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 font-medium rounded-full border border-gray-200 hover:bg-gray-200 hover:text-gray-800 transition-all duration-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-accent font-medium text-sm hover:underline"
-                  >
-                    Ver detalles
-                    <ArrowRight className="ml-1 w-4 h-4" />
-                  </a>
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

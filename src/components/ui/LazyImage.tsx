@@ -22,12 +22,16 @@ const LazyImage: React.FC<LazyImageProps> = ({
   const [error, setError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const [currentSrc, setCurrentSrc] = useState<string>('');
 
   useEffect(() => {
     // Reiniciar estados si cambia la fuente
-    setIsLoaded(false);
-    setError(false);
-  }, [src]);
+    if (src !== currentSrc) {
+      setIsLoaded(false);
+      setError(false);
+      setCurrentSrc(src);
+    }
+  }, [src, currentSrc]);
 
   useEffect(() => {
     const currentImgRef = imgRef.current;
@@ -82,6 +86,14 @@ const LazyImage: React.FC<LazyImageProps> = ({
     }
   };
 
+  // Cargar la imagen inmediatamente si ya está en caché
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img && img.complete) {
+      setIsLoaded(true);
+    }
+  }, []);
+
   return (
     <div className={`relative overflow-hidden ${className}`} style={{ width, height }}>
       {!isLoaded && (
@@ -90,6 +102,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
       <img
         ref={imgRef}
         data-src={src}
+        src={src} // Cargar la imagen inmediatamente en lugar de esperar al IntersectionObserver
         alt={alt}
         width={width}
         height={height}

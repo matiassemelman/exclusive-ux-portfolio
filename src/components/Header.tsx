@@ -20,8 +20,26 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Evitar scroll cuando el menú móvil está abierto
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const handleWhatsAppRedirect = () => {
+    const phoneNumber = "+5491130332808";
+    const message = encodeURIComponent("Hola! Vi tu página y queria hacerte una consulta");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
   };
 
   return (
@@ -51,40 +69,59 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:block">
-          <Button variant="default" className="rounded-full px-6 hover:translate">
+          <Button
+            variant="default"
+            className="rounded-full px-6 hover:translate"
+            onClick={handleWhatsAppRedirect}
+          >
             ¡Digitalizate ya!
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={toggleMobileMenu}>
+        <button
+          className="md:hidden z-50 relative"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle menu"
+        >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div
-        className={cn(
-          'fixed inset-0 z-40 flex flex-col bg-background pt-24 px-4 transition-transform duration-300 ease-in-out md:hidden',
-          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <nav className="flex flex-col space-y-6 p-6">
-          {['Inicio', 'Sobre mí', 'Servicios', 'Portafolio', 'Proceso', 'Testimonios', 'Contacto'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s/g, '-')}`}
-              className="text-xl font-medium py-2 border-b border-border"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item}
-            </a>
-          ))}
-          <Button variant="default" className="rounded-full w-full mt-6" onClick={() => setMobileMenuOpen(false)}>
-            ¡Digitalizate ya!
-          </Button>
-        </nav>
-      </div>
+      {mobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-background/95 backdrop-blur-sm z-40 flex flex-col md:hidden overflow-y-auto"
+          style={{ top: 0, height: '100vh' }}
+        >
+          <div className="container mx-auto mt-24 px-4">
+            <nav className="flex flex-col space-y-4">
+              {['Inicio', 'Sobre mí', 'Servicios', 'Portafolio', 'Proceso', 'Testimonios', 'Contacto'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase().replace(/\s/g, '-')}`}
+                  className="text-xl font-medium py-3 border-b border-border"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <div className="pt-6">
+                <Button
+                  variant="default"
+                  className="rounded-full w-full py-6 text-base"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleWhatsAppRedirect();
+                  }}
+                >
+                  ¡Digitalizate ya!
+                </Button>
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
