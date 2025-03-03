@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import LazyImage from './ui/LazyImage';
+import { Link } from 'react-router-dom';
+import { projectsData } from '@/data/projects';
 
 // Función para obtener el color de la categoría
 const getCategoryColor = (category: string, isActive: boolean = false) => {
@@ -64,50 +66,8 @@ const Portfolio = () => {
 
   const categories = ['Todos', 'Web', 'E-commerce', 'Aplicaciones', 'Emprendimientos'];
 
-  const projects = [
-    {
-      title: "Tienda Online de Indumentaria",
-      category: "E-commerce",
-      image: "/images/portfolio-1.jpg",
-      fallbackImage: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["Woocommerce", "Diseño Responsivo", "Medios de Pago"]
-    },
-    {
-      title: "Web para Estudio Contable",
-      category: "Web",
-      image: "/images/portfolio-2.webp",
-      fallbackImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["WordPress", "Formularios", "SEO"]
-    },
-    {
-      title: "App de Gestión para Cafetería",
-      category: "Aplicaciones",
-      image: "/images/portfolio-3.webp",
-      fallbackImage: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["React", "Sistema de Pedidos", "Reportes"]
-    },
-    {
-      title: "Página para Productora de Eventos",
-      category: "Web",
-      image: "/images/portfolio-4.webp",
-      fallbackImage: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["Diseño Web", "Galería", "Calendario"]
-    },
-    {
-      title: "E-commerce de Productos Regionales",
-      category: "E-commerce",
-      image: "/images/portfolio-5.webp",
-      fallbackImage: "https://images.unsplash.com/photo-1506617564039-2f3b650b7010?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["Tienda Online", "Envíos", "MercadoPago"]
-    },
-    {
-      title: "Web para Startup Agropecuaria",
-      category: "Emprendimientos",
-      image: "/images/portfolio-6.webp",
-      fallbackImage: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80",
-      tags: ["Landing Page", "Formulario de Contacto", "SEO"]
-    }
-  ];
+  // Usar los datos de proyectos del archivo de datos
+  const projects = projectsData;
 
   // Mostrar todos los proyectos pero aplicar filtro visual
   const handleCategoryChange = (category: string) => {
@@ -211,12 +171,7 @@ const Portfolio = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <a
-                        href="#"
-                        className="px-6 py-3 bg-white/20 backdrop-blur-md rounded-full text-white font-medium border border-white/30 hover:bg-white/30 transition-all duration-300"
-                      >
-                        Ver proyecto
-                      </a>
+                      {/* Botón "Ver proyecto" eliminado */}
                     </div>
                   </div>
 
@@ -239,13 +194,13 @@ const Portfolio = () => {
                       ))}
                     </div>
 
-                    <a
-                      href="#"
+                    <Link
+                      to={`/proyecto/${project.id}`}
                       className="inline-flex items-center text-accent font-medium text-sm hover:underline"
                     >
                       Ver detalles
                       <ArrowRight className="ml-1 w-4 h-4" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

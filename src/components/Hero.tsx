@@ -61,10 +61,6 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-on-scroll">
-              <Button className="rounded-full px-8 py-6 text-base bg-cta text-dark hover:bg-cta/90">
-                Ver resultados
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
               <Button
                 variant="outline"
                 className="rounded-full px-8 py-6 text-base border-primary"
