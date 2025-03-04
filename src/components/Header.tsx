@@ -46,17 +46,17 @@ const Header = () => {
     <header
       className={cn(
         'fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out',
-        isScrolled ? 'bg-white/90 backdrop-blur-lg shadow-sm py-4' : 'bg-transparent py-6'
+        isScrolled ? 'bg-white/90 backdrop-blur-lg shadow-sm py-2 md:py-4' : 'bg-transparent py-3 md:py-6'
       )}
     >
-      <div className="container mx-auto flex items-center justify-between">
-        <a href="#" className="text-2xl font-bold text-dark transition-all duration-300 flex items-center">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <a href="#" className="text-xl md:text-2xl font-bold text-dark transition-all duration-300 flex items-center">
           <span>DIGITAL</span><span className="text-primary">20</span>
-          <Clock className="h-5 w-5 ml-1 text-primary" />
+          <Clock className="h-4 w-4 md:h-5 md:w-5 ml-1 text-primary" />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
           {['Inicio', 'Sobre mí', 'Servicios', 'Portafolio', 'Proceso', 'Testimonios', 'Contacto'].map((item) => (
             <a
               key={item}
@@ -71,7 +71,7 @@ const Header = () => {
         <div className="hidden md:block">
           <Button
             variant="default"
-            className="rounded-full px-6 hover:translate"
+            className="rounded-full px-4 md:px-6 py-1.5 md:py-2 text-sm md:text-base hover:translate"
             onClick={handleWhatsAppRedirect}
           >
             ¡Digitalizate ya!
@@ -84,7 +84,7 @@ const Header = () => {
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
@@ -94,22 +94,22 @@ const Header = () => {
           className="fixed inset-0 bg-background/95 backdrop-blur-sm z-40 flex flex-col md:hidden overflow-y-auto"
           style={{ top: 0, height: '100vh' }}
         >
-          <div className="container mx-auto mt-24 px-4">
-            <nav className="flex flex-col space-y-4">
+          <div className="container mx-auto mt-20 px-4">
+            <nav className="flex flex-col space-y-3">
               {['Inicio', 'Sobre mí', 'Servicios', 'Portafolio', 'Proceso', 'Testimonios', 'Contacto'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s/g, '-')}`}
-                  className="text-xl font-medium py-3 border-b border-border"
+                  className="text-lg font-medium py-2.5 border-b border-border"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <div className="pt-6">
+              <div className="pt-4">
                 <Button
                   variant="default"
-                  className="rounded-full w-full py-6 text-base"
+                  className="rounded-full w-full py-5 text-sm"
                   onClick={() => {
                     setMobileMenuOpen(false);
                     handleWhatsAppRedirect();
