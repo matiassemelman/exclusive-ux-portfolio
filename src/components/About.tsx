@@ -55,10 +55,10 @@ const About = () => {
             </div>
 
             {/* Experience badge */}
-            <div className="absolute -right-5 -bottom-5 glass-card rounded-xl p-4 shadow-xl bg-white/90">
+            <div className="absolute top-3 right-3 md:-right-5 md:-bottom-5 glass-card rounded-xl p-3 md:p-4 shadow-xl bg-white/90">
               <div className="text-center">
-                <span className="text-3xl font-bold text-accent">4+</span>
-                <p className="text-sm text-primary">Años de experiencia</p>
+                <span className="text-2xl md:text-3xl font-bold text-accent">4+</span>
+                <p className="text-xs md:text-sm text-primary">Años de experiencia</p>
               </div>
             </div>
 
